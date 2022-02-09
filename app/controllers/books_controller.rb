@@ -10,10 +10,21 @@ class BooksController < ApplicationController
     redirect_to users_path
   end
 
-  def index
-  end
 
   def show
+    @book = Book.new
+    @books = Book.all
+    @user = current_user
+    @book_id = Book.find(params[:id])
+  end
+  
+  def index
+    @book = Book.new
+    @books = Book.all
+    @user = current_user
+  end
+  
+  def edit
   end
 
   def destroy
