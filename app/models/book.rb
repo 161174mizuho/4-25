@@ -6,9 +6,9 @@ class Book < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    profile_image.variant(resize_to_limit: [width, height]).processed
+      profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
-  validates :title, presence: true
-  validates :body, presence: true
+  validates :title, presence: true,length: { minimum: 2, maximum: 20 }
+  validates :body, presence: true,length: { minimum: 0, maximum: 200 }
 end

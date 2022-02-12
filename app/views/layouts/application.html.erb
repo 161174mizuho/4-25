@@ -64,14 +64,19 @@
         </div>
       </nav>
     </header>
-
-    
-    <div class="container">
+    <main>
+      <div class="container px-5 px-sm-0">
+        <% if flash[:notice] %>
+          <p id="notice">
+            <%= flash[:notice] %>
+          </p>
+        <% end %>
       <div class="row">
-        <%= yield %>      
+        <%= yield %>     
       </div>
     </div>
-  
+    </main>
+
     <footer>
       <div class="container mt-5">
         <div class="row">
